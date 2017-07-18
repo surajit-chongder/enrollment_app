@@ -18,6 +18,7 @@ defmodule EnrollmentApp.Router do
 
     get "/", PageController, :index
     resources "/departments", DepartmentController
+    resources "/professors", ProfessorController
   end
 
   # Other scopes may use custom stacks.

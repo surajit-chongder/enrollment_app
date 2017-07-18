@@ -1,0 +1,18 @@
+<h2>Show professor</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @professor.name %>
+  </li>
+
+  <li>
+    <strong>Department:</strong>
+    <%= @professor.department_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: professor_path(@conn, :edit, @professor) %>
+<%= link "Back", to: professor_path(@conn, :index) %>
