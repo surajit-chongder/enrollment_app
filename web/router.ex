@@ -20,6 +20,7 @@ defmodule EnrollmentApp.Router do
     resources "/departments", DepartmentController
     resources "/professors", ProfessorController
     resources "/students", StudentController
+    resources "/courses", CourseController
   end
 
   # Other scopes may use custom stacks.
