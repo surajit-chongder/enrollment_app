@@ -4,7 +4,6 @@ defmodule EnrollmentApp.Course do
   schema "courses" do
     field :name, :string
     belongs_to :department, EnrollmentApp.Department
-    belongs_to :professor, EnrollmentApp.Professor
 
     timestamps()
   end

@@ -2,6 +2,8 @@ defmodule EnrollmentApp.CourseControllerTest do
   use EnrollmentApp.ConnCase
 
   alias EnrollmentApp.Course
+  alias EnrollmentApp.Department
+  alias EnrollmentApp.Professor
   @valid_attrs %{name: "some content"}
   @invalid_attrs %{}
 
@@ -27,7 +29,7 @@ defmodule EnrollmentApp.CourseControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    course = Repo.insert! %Course{}
+    course = Repo.insert!(%Course{name: "Science"})
     conn = get conn, course_path(conn, :show, course)
     assert html_response(conn, 200) =~ "Show course"
   end
@@ -39,26 +41,27 @@ defmodule EnrollmentApp.CourseControllerTest do
   end
 
   test "renders form for editing chosen resource", %{conn: conn} do
-    course = Repo.insert! %Course{}
+    course = Repo.insert!(%Course{name: "Science"})
+
     conn = get conn, course_path(conn, :edit, course)
     assert html_response(conn, 200) =~ "Edit course"
   end
 
   test "updates chosen resource and redirects when data is valid", %{conn: conn} do
-    course = Repo.insert! %Course{}
+    course = Repo.insert!(%Course{name: "Science"})
     conn = put conn, course_path(conn, :update, course), course: @valid_attrs
     assert redirected_to(conn) == course_path(conn, :show, course)
     assert Repo.get_by(Course, @valid_attrs)
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
-    course = Repo.insert! %Course{}
+    course = Repo.insert!(%Course{name: "Science"})
     conn = put conn, course_path(conn, :update, course), course: @invalid_attrs
     assert html_response(conn, 200) =~ "Edit course"
   end
 
   test "deletes chosen resource", %{conn: conn} do
-    course = Repo.insert! %Course{}
+    course = Repo.insert!(%Course{name: "Science"})
     conn = delete conn, course_path(conn, :delete, course)
     assert redirected_to(conn) == course_path(conn, :index)
     refute Repo.get(Course, course.id)
