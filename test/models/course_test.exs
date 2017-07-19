@@ -3,7 +3,7 @@ defmodule EnrollmentApp.CourseTest do
 
   alias EnrollmentApp.Course
 
-  @valid_attrs %{name: "some content"}
+  @valid_attrs %{name: "Science"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

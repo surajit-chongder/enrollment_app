@@ -2,8 +2,8 @@ defmodule EnrollmentApp.ProfessorControllerTest do
   use EnrollmentApp.ConnCase
 
   alias EnrollmentApp.Professor
-  @valid_attrs %{name: "some content"}
-  @invalid_attrs %{}
+  @valid_attrs %{name: "Ram Yadav"}
+  @invalid_attrs %{name: nil}
 
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, professor_path(conn, :index)
@@ -27,7 +27,7 @@ defmodule EnrollmentApp.ProfessorControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    professor = Repo.insert! %Professor{}
+    professor = Repo.insert! %Professor{name: "Ram Yadav"}
     conn = get conn, professor_path(conn, :show, professor)
     assert html_response(conn, 200) =~ "Show professor"
   end
@@ -39,26 +39,26 @@ defmodule EnrollmentApp.ProfessorControllerTest do
   end
 
   test "renders form for editing chosen resource", %{conn: conn} do
-    professor = Repo.insert! %Professor{}
+    professor = Repo.insert! %Professor{name: "Ram Yadav"}
     conn = get conn, professor_path(conn, :edit, professor)
     assert html_response(conn, 200) =~ "Edit professor"
   end
 
   test "updates chosen resource and redirects when data is valid", %{conn: conn} do
-    professor = Repo.insert! %Professor{}
+    professor = Repo.insert! %Professor{name: "Ram Yadav"}
     conn = put conn, professor_path(conn, :update, professor), professor: @valid_attrs
     assert redirected_to(conn) == professor_path(conn, :show, professor)
     assert Repo.get_by(Professor, @valid_attrs)
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
-    professor = Repo.insert! %Professor{}
+    professor = Repo.insert! %Professor{name: "Ram Yadav"}
     conn = put conn, professor_path(conn, :update, professor), professor: @invalid_attrs
     assert html_response(conn, 200) =~ "Edit professor"
   end
 
   test "deletes chosen resource", %{conn: conn} do
-    professor = Repo.insert! %Professor{}
+    professor = Repo.insert! %Professor{name: "Ram Yadav"}
     conn = delete conn, professor_path(conn, :delete, professor)
     assert redirected_to(conn) == professor_path(conn, :index)
     refute Repo.get(Professor, professor.id)
