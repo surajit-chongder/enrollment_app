@@ -14,8 +14,8 @@
 <%= for course <- @courses do %>
     <tr>
       <td><%= course.name %></td>
-      <td><%= course.department_id %></td>
-      <td><%= course.professor_id %></td>
+      <td><%= get_department_name(course.department_id) %></td>
+      <td><%= get_professor_name(course.professor_id) %></td>
 
       <td class="text-right">
         <%= link "Show", to: course_path(@conn, :show, course), class: "btn btn-default btn-xs" %>

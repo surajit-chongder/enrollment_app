@@ -9,12 +9,12 @@
 
   <li>
     <strong>Department:</strong>
-    <%= @course.department_id %>
+    <%= get_department_name(@course.department_id) %>
   </li>
 
   <li>
     <strong>Professor:</strong>
-    <%= @course.professor_id %>
+    <%= get_professor_name(@course.professor_id) %>
   </li>
 
 </ul>
