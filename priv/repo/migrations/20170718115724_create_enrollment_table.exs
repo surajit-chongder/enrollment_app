@@ -7,6 +7,7 @@ defmodule EnrollmentApp.Repo.Migrations.CreateEnrollmentTable do
       add :course_id, references(:courses, on_delete: :nothing)
       timestamps()
     end
-    create index(:enrollments, [:student_id,:course_id])
+
+    create index(:enrollments, [:student_id,:course_id], unique: true)
   end
 end

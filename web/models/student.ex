@@ -9,12 +9,17 @@ defmodule EnrollmentApp.Student do
     timestamps()
   end
 
+  @required_fields ~w(name address email_id)
+  @optional_fields ~w()
+
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name, :address, :email_id])
+    |> cast(params, @required_fields ++ @optional_fields)
     |> validate_required([:name, :address, :email_id])
+    |> unique_constraint(:email)
+    |> validate_format(:email_id,~r/@/)
   end
 end

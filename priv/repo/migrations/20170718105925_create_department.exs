@@ -3,7 +3,7 @@ defmodule EnrollmentApp.Repo.Migrations.CreateDepartment do
 
   def change do
     create table(:departments) do
-      add :name, :string
+      add :name, :string, null: false
 
       timestamps()
     end
