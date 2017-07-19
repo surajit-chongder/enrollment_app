@@ -6,7 +6,6 @@
       <th>Name</th>
       <th>Address</th>
       <th>Email</th>
-      <th>Mobile</th>
 
       <th></th>
     </tr>
@@ -17,7 +16,6 @@
       <td><%= student.name %></td>
       <td><%= student.address %></td>
       <td><%= student.email_id %></td>
-      <td><%= student.mobile %></td>
 
       <td class="text-right">
         <%= link "Show", to: student_path(@conn, :show, student), class: "btn btn-default btn-xs" %>

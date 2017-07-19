@@ -6,7 +6,6 @@ defmodule EnrollmentApp.Repo.Migrations.CreateStudent do
       add :name, :string
       add :address, :string
       add :email_id, :string
-      add :mobile, :integer
 
       timestamps()
     end

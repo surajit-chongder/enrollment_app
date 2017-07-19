@@ -5,7 +5,6 @@ defmodule EnrollmentApp.Student do
     field :name, :string
     field :address, :string
     field :email_id, :string
-    field :mobile, :integer
 
     timestamps()
   end
@@ -15,7 +14,7 @@ defmodule EnrollmentApp.Student do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name, :address, :email_id, :mobile])
-    |> validate_required([:name, :address, :email_id, :mobile])
+    |> cast(params, [:name, :address, :email_id])
+    |> validate_required([:name, :address, :email_id])
   end
 end
