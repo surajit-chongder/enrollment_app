@@ -1,6 +1,8 @@
 defmodule EnrollmentApp.DepartmentController do
   use EnrollmentApp.Web, :controller
 
+  alias EnrollmentApp.Router.Helpers
+
   alias EnrollmentApp.Department
 
   def index(conn, _params) do

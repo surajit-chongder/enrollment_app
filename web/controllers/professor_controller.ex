@@ -1,6 +1,8 @@
 defmodule EnrollmentApp.ProfessorController do
   use EnrollmentApp.Web, :controller
 
+  alias EnrollmentApp.Department
+
   alias EnrollmentApp.Professor
 
   def index(conn, _params) do
@@ -9,8 +11,10 @@ defmodule EnrollmentApp.ProfessorController do
   end
 
   def new(conn, _params) do
+    departments = Repo.all(EnrollmentApp.Department)
+#    departments = EnrollmentApp.Department |> Repo.all
     changeset = Professor.changeset(%Professor{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, departments: departments )
   end
 
   def create(conn, %{"professor" => professor_params}) do
