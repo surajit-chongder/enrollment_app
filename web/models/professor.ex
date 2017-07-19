@@ -1,11 +1,14 @@
 defmodule EnrollmentApp.Professor do
   use EnrollmentApp.Web, :model
 
+  alias EnrollmentApp.Department
+
   schema "professors" do
     field :name, :string
-    belongs_to :department, EnrollmentApp.Department
 
     timestamps()
+
+    belongs_to :department, Department
   end
 
   @doc """

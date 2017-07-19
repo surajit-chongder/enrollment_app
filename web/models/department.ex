@@ -1,10 +1,16 @@
 defmodule EnrollmentApp.Department do
   use EnrollmentApp.Web, :model
 
+  alias EnrollmentApp.Professor
+  alias EnrollmentApp.Course
+
   schema "departments" do
     field :name, :string
 
     timestamps()
+
+    has_many :professors, Professor
+    has_many :courses, Course
   end
 
   @doc """

@@ -1,12 +1,16 @@
 defmodule EnrollmentApp.Student do
   use EnrollmentApp.Web, :model
 
+  alias EnrollmentApp.Enrollment
+
   schema "students" do
     field :name, :string
     field :address, :string
     field :email_id, :string
 
     timestamps()
+
+    has_many :enrollments, Enrollment
   end
 
   @required_fields ~w(name address email_id)
