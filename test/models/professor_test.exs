@@ -18,8 +18,8 @@ defmodule EnrollmentApp.ProfessorTest do
   end
 
   test "changeset with valid name length" do
-      changeset = Professor.changeset(%Professor{}, @invalid_attrs)
-      refute changeset.valid?
-    end
+    changeset = Professor.changeset(%Professor{}, @invalid_attrs)
+    refute changeset.valid?
+  end
 
 end

@@ -39,8 +39,9 @@ defmodule EnrollmentApp.Mixfile do
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"},
-     {:excoveralls, "~> 0.7.1", only: :test, app: :false}]
+     {:excoveralls, "~> 0.7.1", only: :test, app: :false},
+     {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
+     {:cowboy, "~> 1.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

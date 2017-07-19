@@ -16,12 +16,12 @@ defmodule EnrollmentApp.StudentTest do
     refute changeset.valid?
   end
 
-  test "changeset with invalid email" do
+  test "changeset with invalid email should not be a valid entry" do
     changeset = Student.changeset(%Student{}, %{address: "Velachery", email_id: "ram.com", name: "Ram Babu"})
     refute changeset.valid?
   end
 
-  test "changeset with valid email" do
+  test "changeset with valid email should be a valid entry" do
     changeset = Student.changeset(%Student{}, %{address: "Velachery", email_id: "ram@gmail.com", name: "Ram Babu"})
     assert changeset.valid?
   end
