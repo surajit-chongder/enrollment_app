@@ -4,7 +4,7 @@ defmodule EnrollmentApp.Repo.Migrations.CreateProfessor do
   def change do
     create table(:professors) do
       add :name, :string, null: false
-      add :department_id, references(:departments, on_delete: :nothing)
+      add :department_id, references(:departments, on_delete: :nothing), null: false
 
       timestamps()
     end

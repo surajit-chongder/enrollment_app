@@ -2,9 +2,11 @@ defmodule EnrollmentApp.ProfessorControllerTest do
   use EnrollmentApp.ConnCase
 
   alias EnrollmentApp.Professor
-  @valid_attrs %{name: "Ram Yadav"}
-  @invalid_attrs %{name: nil}
 
+  @valid_attrs %{name: "some content", department_id: 1}
+  @invalid_attrs %{}
+  @correct_department %{name: "TEst", id: 3}
+  @departments [@correct_department, {"llll", 5}]
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, professor_path(conn, :index)
     assert html_response(conn, 200) =~ "Listing professors"
@@ -16,6 +18,7 @@ defmodule EnrollmentApp.ProfessorControllerTest do
   end
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
+    Repo.insert! %Department{id: 1, name: "TER"}
     conn = post conn, professor_path(conn, :create), professor: @valid_attrs
     assert redirected_to(conn) == professor_path(conn, :index)
     assert Repo.get_by(Professor, @valid_attrs)

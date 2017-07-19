@@ -16,8 +16,9 @@ defmodule EnrollmentApp.Professor do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name])
-    |> validate_required([:name])
+    |> cast(params, [:name, :department_id])
+    |> validate_required([:name, :department_id])
     |> validate_length(:name, min: 1, max: 50)
+
   end
 end

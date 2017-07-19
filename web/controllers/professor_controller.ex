@@ -11,7 +11,7 @@ defmodule EnrollmentApp.ProfessorController do
   end
 
   def new(conn, _params) do
-    departments = Repo.all(EnrollmentApp.Department) |> Enum.map(&{&1.name, &1.id})
+    departments = Repo.all(Department) |> Enum.map(&{&1.name, &1.id})
 #    departments = EnrollmentApp.Department |> Repo.all
     changeset = Professor.changeset(%Professor{})
     render(conn, "new.html", changeset: changeset, departments: departments )
@@ -19,14 +19,15 @@ defmodule EnrollmentApp.ProfessorController do
 
   def create(conn, %{"professor" => professor_params}) do
     changeset = Professor.changeset(%Professor{}, professor_params)
-
+    changeset.map
+    departments = Repo.all(Department) |> Enum.map(&{&1.name, &1.id})
     case Repo.insert(changeset) do
       {:ok, _professor} ->
         conn
         |> put_flash(:info, "Professor created successfully.")
         |> redirect(to: professor_path(conn, :index))
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "new.html", changeset: changeset, departments: departments)
     end
   end
 
