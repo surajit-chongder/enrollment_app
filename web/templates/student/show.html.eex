@@ -17,11 +17,6 @@
     <%= @student.email_id %>
   </li>
 
-  <li>
-    <strong>Mobile:</strong>
-    <%= @student.mobile %>
-  </li>
-
 </ul>
 
 <%= link "Edit", to: student_path(@conn, :edit, @student) %>

@@ -2,8 +2,8 @@ defmodule EnrollmentApp.StudentControllerTest do
   use EnrollmentApp.ConnCase
 
   alias EnrollmentApp.Student
-  @valid_attrs %{address: "some content", email_id: "some content", mobile: 42, name: "some content"}
-  @invalid_attrs %{}
+  @valid_attrs %{address: "some content", email_id: "something@gmail.com", name: "some content"}
+  @invalid_attrs %{email_id: "something",name: nil}
 
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, student_path(conn, :index)
@@ -21,10 +21,6 @@ defmodule EnrollmentApp.StudentControllerTest do
     assert Repo.get_by(Student, @valid_attrs)
   end
 
-  test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-    conn = post conn, student_path(conn, :create), student: @invalid_attrs
-    assert html_response(conn, 200) =~ "New student"
-  end
 
   test "shows chosen resource", %{conn: conn} do
     student = Repo.insert!(%Student{name: "Saram Ram",address: "Chennai",email_id: "something@gmail.com"})
