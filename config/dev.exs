@@ -37,7 +37,7 @@ config :phoenix, :stacktrace_depth, 20
 config :enrollment_app, EnrollmentApp.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "anu",
+  password: "postgres",
   database: "enrollment_app_dev",
   hostname: "localhost",
   pool_size: 10
