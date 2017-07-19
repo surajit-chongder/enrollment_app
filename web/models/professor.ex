@@ -18,5 +18,6 @@ defmodule EnrollmentApp.Professor do
     struct
     |> cast(params, [:name])
     |> validate_required([:name])
+    |> validate_length(:name, min: 1, max: 50)
   end
 end

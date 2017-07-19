@@ -11,7 +11,7 @@ defmodule EnrollmentApp.ProfessorController do
   end
 
   def new(conn, _params) do
-    departments = Repo.all(EnrollmentApp.Department)
+    departments = Repo.all(EnrollmentApp.Department) |> Enum.map(&{&1.name, &1.id})
 #    departments = EnrollmentApp.Department |> Repo.all
     changeset = Professor.changeset(%Professor{})
     render(conn, "new.html", changeset: changeset, departments: departments )

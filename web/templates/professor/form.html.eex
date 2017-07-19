@@ -9,15 +9,8 @@
     <%= text_input f, :name, class: "form-control" %>
     <%= error_tag f, :name %>
 
-#<%= for department <- @departments do %>
- #   <div><%= department.name %><div>
-#<% end %>
+<%= select f, :name, @departments, class: "form-control" %>
 
-    <select id="user_age" name="user[age]">
-        <option value="0">0</option>
-        ...
-        <option value="120">120</option>
-        </select>
   </div>
 
   <div class="form-group">
