@@ -13,7 +13,7 @@ config :logger, level: :warn
 config :enrollment_app, EnrollmentApp.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "postgres",
+  password: "anu",
   database: "enrollment_app_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
